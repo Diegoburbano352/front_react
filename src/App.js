@@ -70,7 +70,7 @@ function App() {
               <Link to="/list_room">Habitaciones</Link>
             </NavDropdown>
             <NavDropdown title="Reservaciones" id="basic-nav-dropdown" className="ml-0">
-              <Link to="/reservation_user">Crear reservacion</Link>
+              <Link to="/reservation_user">Crear reservacion</Link>{' '}
               <Link to="/list_reservation_user">Mis reservaciones</Link>
             </NavDropdown>
             <NavDropdown title="Mascotas" id="basic-nav-dropdown" className="ml-0">
