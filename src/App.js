@@ -9,7 +9,7 @@ import Pet_user from './components/pet_user';
 import Product from './components/product';
 import Reservation_user from './components/reservation_user';
 import Product_list from './components/product_list';
-import List_reservation_user from './components/list_reservation_users'; 
+import List_reservation_user from './components/list_reservation_users';
 import List_room from './components/list_room';
 import Pet_user_list from './components/pet_user_list';
 import Product_admin from './components/product_admin';
@@ -20,10 +20,6 @@ import User_admin from './components/user_admin';
 import Cart_view from './components/cart_view';
 import Reservation_admin from './components/reservation_admin';
 import Pet_admin from './components/pet_admin';
-
-
-
-
 
 function Home() {
   return (
@@ -48,7 +44,7 @@ function App() {
   return (
     <div>
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="/">Paw's Mansion</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">Paw's Mansion</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -59,33 +55,33 @@ function App() {
               <NavDropdown.Item onClick={handleLogout}>Cerrar Sesión</NavDropdown.Item>
             </NavDropdown>
             {userRole !== 'usuario' && (
-            <NavDropdown title="Administracion" id="basic-nav-dropdown" className="ml-0">
-           {userRole !== 'usuario' && <Nav.Link href="/product">Crear Productos</Nav.Link>}
-           {userRole !== 'usuario' && <Nav.Link href="/product_admin">Productos</Nav.Link>}
-           {userRole !== 'usuario' && <Nav.Link href="/list_room_admin">Habitaciones admin</Nav.Link>}
-           {userRole !== 'usuario' && userRole !== 'empleado' && <Nav.Link href="/employee">Empleados</Nav.Link>}
-           {userRole !== 'usuario' && userRole !== 'empleado' && <Nav.Link href="/user_admin">Usuarios</Nav.Link>}
-           {userRole !== 'usuario' && <Nav.Link href="/reservation_admin">Reservaciones</Nav.Link>}
-           {userRole !== 'usuario' && <Nav.Link href="/pet_admin">Todas las mascotas</Nav.Link>}
-           </NavDropdown>
-             )}
+              <NavDropdown title="Administracion" id="basic-nav-dropdown" className="ml-0">
+                {userRole !== 'usuario' && <Link to="/product">Crear Productos</Link>}
+                {userRole !== 'usuario' && <Link to="/product_admin">Productos</Link>}
+                {userRole !== 'usuario' && <Link to="/list_room_admin">Habitaciones admin</Link>}
+                {userRole !== 'usuario' && userRole !== 'empleado' && <Link to="/employee">Empleados</Link>}
+                {userRole !== 'usuario' && userRole !== 'empleado' && <Link to="/user_admin">Usuarios</Link>}
+                {userRole !== 'usuario' && <Link to="/reservation_admin">Reservaciones</Link>}
+                {userRole !== 'usuario' && <Link to="/pet_admin">Todas las mascotas</Link>}
+              </NavDropdown>
+            )}
             <NavDropdown title="Habitaciones" id="basic-nav-dropdown" className="ml-0">
-            {userRole !== 'usuario' && <Nav.Link href="/room">Crear Habitaciones</Nav.Link>}
-            <Nav.Link href="/list_room">Habitaciones</Nav.Link>
+              {userRole !== 'usuario' && <Link to="/room">Crear Habitaciones</Link>}
+              <Link to="/list_room">Habitaciones</Link>
             </NavDropdown>
             <NavDropdown title="Reservaciones" id="basic-nav-dropdown" className="ml-0">
-              <Nav.Link href="/reservation_user">Crear reservacion</Nav.Link>
-              <Nav.Link href="/list_reservation_user">Mis reservaciones</Nav.Link>
+              <Link to="/reservation_user">Crear reservacion</Link>
+              <Link to="/list_reservation_user">Mis reservaciones</Link>
             </NavDropdown>
             <NavDropdown title="Mascotas" id="basic-nav-dropdown" className="ml-0">
-            <Nav.Link href="/pet_user">Crear mascotas</Nav.Link>
-            <Nav.Link href="/pet_user_list">Mis mascotas</Nav.Link>
+              <Link to="/pet_user">Crear mascotas</Link>
+              <Link to="/pet_user_list">Mis mascotas</Link>
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="/cart_view">
+            <Link to="/cart_view" className="nav-link">
               <FaShoppingCart /> Carrito
-            </Nav.Link>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -104,11 +100,11 @@ function App() {
         <Route path="/product_admin" element={<Product_admin />} />
         <Route path="/list_room_admin" element={<List_room_admin />} />
         <Route path="/employee" element={<Employee />} />
-        <Route path="/client_user" element={<Client_user/>} />
-        <Route path="/user_admin" element={<User_admin/>} />
-        <Route path="/cart_view" element={<Cart_view/>} />
-        <Route path="/reservation_admin" element={<Reservation_admin/>} />
-        <Route path="/pet_admin" element={<Pet_admin/>} />
+        <Route path="/client_user" element={<Client_user />} />
+        <Route path="/user_admin" element={<User_admin />} />
+        <Route path="/cart_view" element={<Cart_view />} />
+        <Route path="/reservation_admin" element={<Reservation_admin />} />
+        <Route path="/pet_admin" element={<Pet_admin />} />
       </Routes>
     </div>
   );
